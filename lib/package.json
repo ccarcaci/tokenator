@@ -4,19 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "linter": "eslint --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ccarcaci/tokst.git"
   },
-  "author": "",
+  "author": "Claudio Carcaci",
   "license": "EUPL-1.2",
   "bugs": {
     "url": "https://github.com/ccarcaci/tokst/issues"
   },
   "homepage": "https://github.com/ccarcaci/tokst#readme",
   "devDependencies": {
-    "jest": "^25.1.0"
+    "eslint": "^6.8.0",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.7"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run linter",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
