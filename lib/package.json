@@ -1,0 +1,22 @@
+{
+  "name": "tokst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --passWithNoTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccarcaci/tokst.git"
+  },
+  "author": "",
+  "license": "EUPL-1.2",
+  "bugs": {
+    "url": "https://github.com/ccarcaci/tokst/issues"
+  },
+  "homepage": "https://github.com/ccarcaci/tokst#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
