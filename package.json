@@ -1,0 +1,41 @@
+{
+  "name": "@bitacode/tokenator",
+  "version": "0.1.0",
+  "description": "Simple to use library that rework a string splitting it to meaningful tokens",
+  "keywords": [
+    "tokens",
+    "split",
+    "splitting",
+    "split string",
+    "token stream"
+  ],
+  "homepage": "https://github.com/ccarcaci/tokenator",
+  "bugs": "https://github.com/ccarcaci/tokenator/issues",
+  "scripts": {
+    "test": "jest --passWithNoTests --runInBand",
+    "linter": "eslint --fix ./"
+  },
+  "author": "ccarcaci <windows@codeab.it> (https://github.com/ccarcaci)",
+  "license": "EUPL-1.2",
+  "repository": "github:ccarcaci/tokenator",
+  "main": "src/index.js",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.7",
+    "stream-mock": "^2.0.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run linter",
+      "npm test",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
