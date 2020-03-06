@@ -47,7 +47,7 @@ jobs:
 
 workflows:
   version: 2
-  test-deploy:
+  send-to-npm:
     jobs:
       - build:
           filters:
@@ -59,7 +59,7 @@ workflows:
           filters:
             tags:
               only: /^v.*/
-      - deploy:
+      - publish:
           requires:
             - test
           filters:
