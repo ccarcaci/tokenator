@@ -42,7 +42,7 @@ Result tokens:
 npm install tokenator
 ```
 
-## Code Examples
+## Code Examples
 
 The signatures of the available methods are:
 
