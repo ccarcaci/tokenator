@@ -1,8 +1,8 @@
 # tokenator: a Node.js tokenization library
 
 [![<CircleCI>](https://circleci.com/gh/ccarcaci/tokenator.svg?style=shield)](<https://circleci.com/gh/ccarcaci/tokenator>)
-![npm](https://img.shields.io/npm/v/@bitacode/tokenator?color=green)
-[![License](eupl-1.2.svg)](https://opensource.org/licenses/EUPL-1.2)
+[![npm](https://img.shields.io/npm/v/@bitacode/tokenator?color=green)](https://www.npmjs.com/package/@bitacode/tokenator)
+[![License](eupl-1.2.png)](https://opensource.org/licenses/EUPL-1.2)
 
 **tokenator** is a simple to use library that rework a string splitting it to meaningful tokens.
 
