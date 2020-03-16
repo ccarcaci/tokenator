@@ -1,10 +1,10 @@
+/* eslint-env node */
+/* eslint-disable max-lines-per-function */
 "use strict"
 
 const tokenator = require("../src/tokenator")
 
 describe("Receive an utf-8 string, generate token array", () => {
-  test("1===1 test", () => expect(1===1).toBe(true))
-
   test("Lazy", () => expect(tokenator("Lazy")).toEqual(["Lazy"]))
   test("Lazy Dog against D", () => expect(tokenator("Lazy Dog", "D")).toEqual([ "Lazy ", "D", "og" ]))
   test("Lazy Dog against Dog against Dog", () => {
