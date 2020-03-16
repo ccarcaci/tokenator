@@ -1,19 +1,44 @@
+/* eslint-env node */
 "use strict"
 
-const halves = (source, separator) => {
-  const fromIndex = source.indexOf(separator)
-
-  if(fromIndex === -1) { return [source] }
-
+const separateString = (source, cuttingPoint, separator) => {
+  const sourceLength = source.length
+  const separatorLength = separator.length
   let halves = []
-  const firstHalf = source.substring(0, fromIndex)
-  const secondHalf = source.substring(fromIndex + separator.length, source.length)
+  const firstHalf = source.substring(0, cuttingPoint)
+  const secondHalf = source.substring(cuttingPoint + separatorLength, sourceLength)
 
   if(firstHalf !== "") { halves = [firstHalf] }
   halves = [ ...halves, separator ]
   if(secondHalf !== "") { halves = [ ...halves, secondHalf ] }
 
   return halves
+}
+
+const separateBuffer = (source, cuttingPoint, separator) => {
+  const sourceLength = source.length
+  const separatorLength = separator.length
+  const firstPart = Buffer.alloc(cuttingPoint)
+  source.copy(firstPart, 0, 0, cuttingPoint)
+  const secondPart = Buffer.alloc(sourceLength - cuttingPoint - separatorLength)
+  source.copy(secondPart, 0, cuttingPoint + separatorLength, sourceLength)
+
+  let halves = []
+
+  if(firstPart.length > 0) { halves = [firstPart] }
+  halves = [ ...halves, separator ]
+  if(secondPart.length > 0) { halves = [ ...halves, secondPart ] }
+
+  return halves
+}
+
+const halves = (source, separator) => {
+  const cuttingPoint = source.indexOf(separator)
+
+  if(cuttingPoint < 0) { return [source] }
+  if(Buffer.isBuffer(source)) { return separateBuffer(source, cuttingPoint, separator) }
+
+  return separateString(source, cuttingPoint, separator)
 }
 
 const tokenize = (source, match) => {
