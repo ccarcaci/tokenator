@@ -4,15 +4,10 @@
 const separateString = (source, cuttingPoint, separator) => {
   const sourceLength = source.length
   const separatorLength = separator.length
-  let halves = []
-  const firstHalf = source.substring(0, cuttingPoint)
-  const secondHalf = source.substring(cuttingPoint + separatorLength, sourceLength)
+  const firstPart = source.substring(0, cuttingPoint)
+  const secondPart = source.substring(cuttingPoint + separatorLength, sourceLength)
 
-  if(firstHalf !== "") { halves = [firstHalf] }
-  halves = [ ...halves, separator ]
-  if(secondHalf !== "") { halves = [ ...halves, secondHalf ] }
-
-  return halves
+  return [ firstPart, secondPart ]
 }
 
 const separateBuffer = (source, cuttingPoint, separator) => {
@@ -23,6 +18,18 @@ const separateBuffer = (source, cuttingPoint, separator) => {
   const secondPart = Buffer.alloc(sourceLength - cuttingPoint - separatorLength)
   source.copy(secondPart, 0, cuttingPoint + separatorLength, sourceLength)
 
+  return [ firstPart, secondPart ]
+}
+
+const halves = (source, separator) => {
+  const cuttingPoint = source.indexOf(separator)
+  let separationFunction = separateString
+
+  if(cuttingPoint < 0) { return [source] }
+  if(Buffer.isBuffer(source)) { separationFunction = separateBuffer }
+
+  const [ firstPart, secondPart ] = separationFunction(source, cuttingPoint, separator)
+
   let halves = []
 
   if(firstPart.length > 0) { halves = [firstPart] }
@@ -30,15 +37,6 @@ const separateBuffer = (source, cuttingPoint, separator) => {
   if(secondPart.length > 0) { halves = [ ...halves, secondPart ] }
 
   return halves
-}
-
-const halves = (source, separator) => {
-  const cuttingPoint = source.indexOf(separator)
-
-  if(cuttingPoint < 0) { return [source] }
-  if(Buffer.isBuffer(source)) { return separateBuffer(source, cuttingPoint, separator) }
-
-  return separateString(source, cuttingPoint, separator)
 }
 
 const tokenize = (source, match) => {
