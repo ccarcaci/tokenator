@@ -3,9 +3,18 @@
 const stream = require("stream")
 const tokenator = require("./tokenator")
 
-module.exports = (...separator) => new stream.Transform({
+let currentSeparator = ""
+
+const splittingSeparator = (separator, token) => {
+  
+}
+
+module.exports = (...separators) => new stream.Transform({
   transform(chunk, _, callback) {
-    tokenator(chunk, ...separator).forEach((token) => this.push(token))
+    const firstSeparator = separators[0]
+    currentSeparator = splittingSeparator(firstSeparator, token)
+
+    tokenator(chunk, ...separators).forEach((token) => this.push(token))
     callback()
   },
 })
