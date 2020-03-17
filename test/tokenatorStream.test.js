@@ -31,4 +31,17 @@ describe("Receive chunks, transform them in stream of tokens", () => {
       done()
     })
   })
+  test("Splitting token belongs to two different incoming chunks", (done) => {
+    const source = ["Nel mezzo del cam", "min di nostra vita"]
+    const reader = new streamMock.ObjectReadableMock(source)
+    const writer = new streamMock.ObjectWritableMock()
+
+    reader.pipe(tokenatorStream("cammin"))
+      .pipe(writer)
+
+    writer.on("finish", () => {
+      expect(writer.data.map((tokenBuf) => tokenBuf.toString())).toEqual([ "Nel mezzo del ", "cammin", " di nostra vita" ])
+      done()
+    })
+  })
 })
