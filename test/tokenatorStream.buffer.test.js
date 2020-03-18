@@ -11,7 +11,7 @@ describe("Receive chunks, transform them in stream of tokens", () => {
     const reader = new streamMock.ObjectReadableMock(source)
     const writer = new streamMock.ObjectWritableMock()
 
-    reader.pipe(tokenatorStream())
+    reader.pipe(tokenatorStream()())
       .pipe(writer)
 
     writer.on("finish", () => {
@@ -24,7 +24,7 @@ describe("Receive chunks, transform them in stream of tokens", () => {
     const reader = new streamMock.ObjectReadableMock(source)
     const writer = new streamMock.ObjectWritableMock()
 
-    reader.pipe(tokenatorStream(Buffer.from("D")))
+    reader.pipe(tokenatorStream(Buffer.from("D"))())
       .pipe(writer)
 
     writer.on("finish", () => {

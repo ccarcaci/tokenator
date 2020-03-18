@@ -1,4 +1,4 @@
-/* eslint-disable max-nested-callbacks */
+/* eslint-disable max-nested-callbacks, max-lines-per-function */
 "use strict"
 
 const streamMock = require("stream-mock")
@@ -10,7 +10,7 @@ describe("Receive chunks, transform them in stream of tokens", () => {
     const reader = new streamMock.ObjectReadableMock(source)
     const writer = new streamMock.ObjectWritableMock()
 
-    reader.pipe(tokenatorStream())
+    reader.pipe(tokenatorStream()())
       .pipe(writer)
 
     writer.on("finish", () => {
@@ -23,11 +23,39 @@ describe("Receive chunks, transform them in stream of tokens", () => {
     const reader = new streamMock.ObjectReadableMock(source)
     const writer = new streamMock.ObjectWritableMock()
 
-    reader.pipe(tokenatorStream("D"))
+    reader.pipe(tokenatorStream("D")())
       .pipe(writer)
 
     writer.on("finish", () => {
       expect(writer.data.map((tokenBuf) => tokenBuf.toString())).toEqual([ "Lazy ", "D", "og" ])
+      done()
+    })
+  })
+  test("Splitting token belongs to two different incoming chunks", (done) => {
+    const source = [ "Nel mezzo del cam", "min di nostra vita" ]
+    const reader = new streamMock.ObjectReadableMock(source)
+    const writer = new streamMock.ObjectWritableMock()
+
+    reader.pipe(tokenatorStream("cammin")())
+      .pipe(writer)
+
+    writer.on("finish", () => {
+      expect(writer.data.map((tokenBuf) => tokenBuf.toString()))
+        .toEqual([ "Nel mezzo del ", "cammin", " di nostra vita" ])
+      done()
+    })
+  })
+  test("Token can be resembled on multiple chunks", (done) => {
+    const source = [ "Nel mezzo del c", "a", "m", "m", "i", "n di nostra vita" ]
+    const reader = new streamMock.ObjectReadableMock(source)
+    const writer = new streamMock.ObjectWritableMock()
+
+    reader.pipe(tokenatorStream("cammin")())
+      .pipe(writer)
+
+    writer.on("finish", () => {
+      expect(writer.data.map((tokenBuf) => tokenBuf.toString()))
+        .toEqual([ "Nel mezzo del ", "cammin", " di nostra vita" ])
       done()
     })
   })

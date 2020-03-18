@@ -48,7 +48,7 @@ The signatures of the available methods are:
 
 ```typescript
 function tokenator(source: string, ...separators: string[]): string[]
-function tokenatorStream(...separators: string[]): stream.Transform
+function tokenatorStream(...separators: string[]): (separatorsEncoding: string = "utf-8") => stream.Transform
 ```
 
 Code examples could be consulted within the test folder:
