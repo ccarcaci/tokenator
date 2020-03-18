@@ -44,4 +44,17 @@ describe("Receive chunks, transform them in stream of tokens", () => {
       done()
     })
   })
+  test("Token can be resembled on multiple chunks", (done) => {
+    const source = ["Nel mezzo del c", "a", "m", "m", "i", "n di nostra vita"]
+    const reader = new streamMock.ObjectReadableMock(source)
+    const writer = new streamMock.ObjectWritableMock()
+
+    reader.pipe(tokenatorStream("cammin"))
+      .pipe(writer)
+
+    writer.on("finish", () => {
+      expect(writer.data.map((tokenBuf) => tokenBuf.toString())).toEqual([ "Nel mezzo del ", "cammin", " di nostra vita" ])
+      done()
+    })
+  })
 })
