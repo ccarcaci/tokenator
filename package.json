@@ -1,6 +1,6 @@
 {
   "name": "@bitacode/tokenator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple to use library that rework a string splitting it to meaningful tokens",
   "keywords": [
     "tokens",
@@ -15,7 +15,7 @@
     "test": "jest --passWithNoTests --runInBand",
     "linter": "eslint --fix ./"
   },
-  "author": "ccarcaci <windows@codeab.it> (https://github.com/ccarcaci)",
+  "author": "ccarcaci <winston@codeab.it> (https://github.com/ccarcaci)",
   "license": "EUPL-1.2",
   "repository": "github:ccarcaci/tokenator",
   "main": "src/index.js",
