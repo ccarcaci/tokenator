@@ -13,7 +13,10 @@
   "bugs": "https://github.com/ccarcaci/tokenator/issues",
   "scripts": {
     "test": "jest --passWithNoTests --runInBand",
-    "linter": "eslint --fix ./"
+    "linter": "eslint --fix ./",
+    "bump:major": "npm version major",
+    "bump:minor": "npm version minor",
+    "bump:patch": "npm version patch"
   },
   "author": "ccarcaci <winston@codeab.it> (https://github.com/ccarcaci)",
   "license": "EUPL-1.2",
