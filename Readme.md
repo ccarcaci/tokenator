@@ -57,3 +57,5 @@ Code examples could be consulted within the test folder:
 
 These functions work over multiple separators, like in the example above.
 The tokenatorStream() function creates a Transform stream. NodeJS Stream usage specification is available on the [NodeJS official documentation](https://nodejs.org/api/stream.html).
+
+## [Changelog](Changelog.md)
