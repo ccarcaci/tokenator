@@ -5,15 +5,16 @@ const verifyTrailingSeparator = (chunk, separator) => {
     || chunk.length <= 0
     || chunk.equals(separator)) { return false }
 
-  for(let overlappingIndex = 1; overlappingIndex <= Math.min(chunk.length, separator.length); overlappingIndex++) {
-    const matching = separator.subarray(0, overlappingIndex)
 
-    if(chunk.compare(
+  for(let overlappingIndex = 1; overlappingIndex <= Math.min(chunk.length, separator.length - 1); overlappingIndex++) {
+    const matching = chunk.subarray(chunk.length - overlappingIndex, chunk.length)
+
+    if(separator.compare(
       matching,
       0,
       matching.length,
-      chunk.length - overlappingIndex,
-      chunk.length) === 0) { return true }
+      0,
+      overlappingIndex) === 0) { return true }
   }
 
   return false

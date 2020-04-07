@@ -19,4 +19,7 @@ describe("Check if Buffer trail ends with part of matching Buffer", () => {
   test("Unmatching", () => expect(trailingPartialMatch(
     Buffer.from("Nel mezzo del "),
     Buffer.from("cammin"))).toBe(false))
+  test("Trailing match", () => expect(trailingPartialMatch(
+    Buffer.from("nostra vita"),
+    Buffer.from("vita"))).toBe(false))
 })
