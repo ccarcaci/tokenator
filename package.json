@@ -1,6 +1,6 @@
 {
   "name": "@bitacode/tokenator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple to use library that rework a string splitting it to meaningful tokens",
   "keywords": [
     "tokens",
