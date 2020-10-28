@@ -19,7 +19,7 @@
     "bump:patch": "npm version patch"
   },
   "author": "ccarcaci <winston@codeab.it> (https://github.com/ccarcaci)",
-  "license": "EUPL-1.2",
+  "license": "MIT",
   "repository": "github:ccarcaci/tokenator",
   "main": "src/index.js",
   "devDependencies": {

@@ -2,7 +2,7 @@
 
 [![<CircleCI>](https://circleci.com/gh/ccarcaci/tokenator.svg?style=shield)](<https://circleci.com/gh/ccarcaci/tokenator>)
 [![npm](https://img.shields.io/npm/v/@bitacode/tokenator?color=green)](https://www.npmjs.com/package/@bitacode/tokenator)
-[![License](https://i.ibb.co/4RR85Hw/eupl-1-2.png)](https://opensource.org/licenses/EUPL-1.2)
+[![License](https://img.shields.io/npm/l/@bitacode/tokenator)](https://mit-license.org/)
 
 **tokenator** is a simple to use library that rework a string splitting it to meaningful tokens.
 
@@ -11,6 +11,8 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Code Examples](#code-examples)
+- [Changelog](#changelog)
+- [License](#license)
 
 ## Description
 
@@ -58,4 +60,12 @@ Code examples could be consulted within the test folder:
 These functions work over multiple separators, like in the example above.
 The tokenatorStream() function creates a Transform stream. NodeJS Stream usage specification is available on the [NodeJS official documentation](https://nodejs.org/api/stream.html).
 
-## [Changelog](Changelog.md)
+## Changelog
+
+[Available here](Changelog.md)
+
+## License
+
+MIT
+
+[Available here](License.md)
