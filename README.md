@@ -62,10 +62,10 @@ The tokenatorStream() function creates a Transform stream. NodeJS Stream usage s
 
 ## Changelog
 
-[Available here](Changelog.md)
+[Available here](CHANGELOG.md)
 
 ## License
 
 MIT
 
-[Available here](License.md)
+[Available here](LICENSE.md)
