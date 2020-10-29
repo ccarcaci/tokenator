@@ -2,7 +2,6 @@
 
 [![<CircleCI>](https://circleci.com/gh/ccarcaci/tokenator.svg?style=shield)](<https://circleci.com/gh/ccarcaci/tokenator>)
 [![npm](https://img.shields.io/npm/v/@bitacode/tokenator?color=green)](https://www.npmjs.com/package/@bitacode/tokenator)
-[![License](https://img.shields.io/npm/l/@bitacode/tokenator)](https://mit-license.org/)
 
 **tokenator** is a simple to use library that rework a string splitting it to meaningful tokens.
 
