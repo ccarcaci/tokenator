@@ -12,34 +12,31 @@
   "homepage": "https://github.com/ccarcaci/tokenator",
   "bugs": "https://github.com/ccarcaci/tokenator/issues",
   "scripts": {
-    "test": "jest --passWithNoTests --runInBand",
-    "linter": "eslint --fix ./",
     "bump:major": "npm version major",
     "bump:minor": "npm version minor",
-    "bump:patch": "npm version patch"
+    "bump:patch": "npm version patch",
+    "linter": "eslint --fix ./",
+    "ncu": "ncu -u",
+    "ncuUpdateMinor": "ncu --upgrade --target minor && npm install",
+    "ncuVerifyUpdateMinor": "ncu --target minor --errorLevel 2",
+    "ncuVerifyUpdateMajor": "ncu --target latest",
+    "test": "jest --passWithNoTests --runInBand"
   },
   "author": "ccarcaci <winston@codeab.it> (https://github.com/ccarcaci)",
   "license": "MIT",
   "repository": "github:ccarcaci/tokenator",
   "main": "src/index.js",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "husky": "^4.2.1",
-    "jest": "^25.1.0",
-    "lint-staged": "^10.0.7",
-    "stream-mock": "^2.0.5",
-    "minimist": ">=1.2.2"
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "npm run linter",
-      "npm test",
-      "git add ."
-    ]
+    "eslint": "^7.13.0",
+    "husky": "^4.3.0",
+    "jest": "^26.6.3",
+    "minimist": ">=1.2.5",
+    "npm-check-updates": "^10.1.1",
+    "stream-mock": "^2.0.5"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "sh preCommitHook.sh"
     }
   }
 }
