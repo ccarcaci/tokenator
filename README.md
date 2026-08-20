@@ -1,5 +1,10 @@
 # tokenator: a Node.js tokenization library
 
+> [!WARNING]
+> **Deprecated as of 2026-08-20.** No longer maintained.
+>
+> No further releases, including security fixes.
+
 [![<CircleCI>](https://circleci.com/gh/ccarcaci/tokenator.svg?style=shield)](<https://circleci.com/gh/ccarcaci/tokenator>)
 [![npm](https://img.shields.io/npm/v/@bitacode/tokenator?color=green)](https://www.npmjs.com/package/@bitacode/tokenator)
 [![License](https://img.shields.io/npm/l/@bitacode/tokenator)](https://mit-license.org/)
