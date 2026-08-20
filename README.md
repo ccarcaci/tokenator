@@ -1,4 +1,4 @@
-# tokenator: a Node.js tokenization library
+# [DEPRECATED] tokenator: a Node.js tokenization library
 
 > [!WARNING]
 > **Deprecated as of 2026-08-20.** No longer maintained.
